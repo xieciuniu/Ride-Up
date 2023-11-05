@@ -30,6 +30,8 @@
 		DA9F9E002AB9FB10001C9D6B /* MainView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9F9DFF2AB9FB10001C9D6B /* MainView-ViewModel.swift */; };
 		DA9F9E022AB9FC09001C9D6B /* AddCarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9F9E012AB9FC09001C9D6B /* AddCarView.swift */; };
 		DA9F9E042ABA033A001C9D6B /* GarageView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9F9E032ABA033A001C9D6B /* GarageView-ViewModel.swift */; };
+		DAAEE0022AF7A45B0035E770 /* RefuelEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAEE0012AF7A45B0035E770 /* RefuelEditView.swift */; };
+		DAAEE0042AF7A4710035E770 /* RefuelEditView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAEE0032AF7A4710035E770 /* RefuelEditView-ViewModel.swift */; };
 		DAB15C742AF154FF00590ABB /* RefuelHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB15C732AF154FF00590ABB /* RefuelHistoryView.swift */; };
 		DAB15C762AF1551B00590ABB /* RefuelHistoryView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB15C752AF1551B00590ABB /* RefuelHistoryView-ViewModel.swift */; };
 		DAB3B5B92AD69E4F0074BBAF /* AddChecklistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB3B5B82AD69E4F0074BBAF /* AddChecklistView.swift */; };
@@ -68,6 +70,8 @@
 		DA9F9DFF2AB9FB10001C9D6B /* MainView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainView-ViewModel.swift"; sourceTree = "<group>"; };
 		DA9F9E012AB9FC09001C9D6B /* AddCarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCarView.swift; sourceTree = "<group>"; };
 		DA9F9E032ABA033A001C9D6B /* GarageView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GarageView-ViewModel.swift"; sourceTree = "<group>"; };
+		DAAEE0012AF7A45B0035E770 /* RefuelEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefuelEditView.swift; sourceTree = "<group>"; };
+		DAAEE0032AF7A4710035E770 /* RefuelEditView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RefuelEditView-ViewModel.swift"; sourceTree = "<group>"; };
 		DAB15C732AF154FF00590ABB /* RefuelHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefuelHistoryView.swift; sourceTree = "<group>"; };
 		DAB15C752AF1551B00590ABB /* RefuelHistoryView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RefuelHistoryView-ViewModel.swift"; sourceTree = "<group>"; };
 		DAB3B5B82AD69E4F0074BBAF /* AddChecklistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChecklistView.swift; sourceTree = "<group>"; };
@@ -140,6 +144,8 @@
 				DA2A54282AEB922600DD078D /* RefuelView-ViewModel.swift */,
 				DAB15C732AF154FF00590ABB /* RefuelHistoryView.swift */,
 				DAB15C752AF1551B00590ABB /* RefuelHistoryView-ViewModel.swift */,
+				DAAEE0012AF7A45B0035E770 /* RefuelEditView.swift */,
+				DAAEE0032AF7A4710035E770 /* RefuelEditView-ViewModel.swift */,
 				DAF1FA8B2ABC2AD2008FCAA9 /* CarClockView.swift */,
 				DA9F9E012AB9FC09001C9D6B /* AddCarView.swift */,
 				DA5EA4D12AB9A6F90056F241 /* Car.swift */,
@@ -235,9 +241,11 @@
 				DA9F9E002AB9FB10001C9D6B /* MainView-ViewModel.swift in Sources */,
 				DAB3B5B92AD69E4F0074BBAF /* AddChecklistView.swift in Sources */,
 				DA34BE002ACD98750090FA9A /* ReplacementView.swift in Sources */,
+				DAAEE0042AF7A4710035E770 /* RefuelEditView-ViewModel.swift in Sources */,
 				DAC9B7162AC952AC009CDA25 /* NewRemainderView.swift in Sources */,
 				DA5EA4CC2AB9A29B0056F241 /* GarageView.swift in Sources */,
 				DA9F9E042ABA033A001C9D6B /* GarageView-ViewModel.swift in Sources */,
+				DAAEE0022AF7A45B0035E770 /* RefuelEditView.swift in Sources */,
 				DA954F4A2AE672B00091BF11 /* EditRemainderView.swift in Sources */,
 				DAEB7B862AD3C53A0008EC0E /* EditChecklistView.swift in Sources */,
 				DAF1FA8C2ABC2AD2008FCAA9 /* CarClockView.swift in Sources */,

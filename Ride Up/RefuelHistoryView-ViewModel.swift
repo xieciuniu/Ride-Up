@@ -12,6 +12,9 @@ extension RefuelHistoryView {
         
         @Published var car = Car()
         
+        let economyUnit = "l/100km"
+        
+        
         func extractCar(cars: Cars) {
             if let thisCar = cars.cars.first(where: {$0.isChosen == true}) {
                 car = thisCar

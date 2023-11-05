@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 struct FuelEconomy: Codable, Hashable {
+    var id = UUID()
     var fuelEconomy: Double = 0
     var mileage: Double = 0
     var price: Double?

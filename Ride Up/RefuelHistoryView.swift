@@ -17,11 +17,11 @@ struct RefuelHistoryView: View {
                 ForEach(viewModel.car.fuel, id: \.self) { fuel in
                     
                     NavigationLink {
-                        Text("Here user can change old refilling")
+                        RefuelEditView(id: fuel.id)
                     } label: {
                         VStack{
                             HStack{
-                                Text("\(fuel.fuelEconomy, specifier: "%.2f")")
+                                Text("Tanked: \((fuel.tankedFuel ?? 0.00), specifier: "%.2f") l")
                                 Spacer()
                             }
                             HStack {
@@ -29,7 +29,11 @@ struct RefuelHistoryView: View {
                                 Spacer()
                             }
                             HStack {
-                                Text("\((fuel.price ?? 0), format: viewModel.waluta)")
+                                Text("Price \((fuel.price ?? 0), format: viewModel.waluta)")
+                                Spacer()
+                            }
+                            HStack {
+                                Text("Fuel economy: \(fuel.fuelEconomy, specifier: "%.2f") \(viewModel.economyUnit)")
                                 Spacer()
                             }
                         }
