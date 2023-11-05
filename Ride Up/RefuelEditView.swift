@@ -19,7 +19,7 @@ struct RefuelEditView: View {
             Section {
                 HStack{
                     Text("Tanked fuel: ")
-                    Spacer()
+//                    Spacer()
                     TextField("", value: $viewModel.fuelVariable.tankedFuel , format: .number)
                         .multilineTextAlignment(.trailing)
                         .keyboardType(.decimalPad)
@@ -27,17 +27,29 @@ struct RefuelEditView: View {
                 }
                 HStack {
                     Text("Fuel price per liter:")
+                    TextField("", value: $viewModel.fuelVariable.pricePerLiter, format: viewModel.waluta)
+                        .multilineTextAlignment(.trailing)
+                        .keyboardType(.decimalPad)
                 }
                 HStack{
                     Text("Price for fuel:")
-                    TextField("", value: $viewModel.fuelVariable.price, format: viewModel.waluta)
+                    TextField("", value: $viewModel.fuelVariable.priceOverall, format: viewModel.waluta)
                         .multilineTextAlignment(.trailing)
+                        .keyboardType(.decimalPad)
                 }
                 HStack {
                     Text("Odometer when you fill up:")
+                    TextField("", value: $viewModel.fuelVariable.mileageOverall, format: .number )
+                        .multilineTextAlignment(.trailing)
+                        .keyboardType(.decimalPad)
+                    Text("km")
                 }
                 HStack {
                     Text("Mileage since last refill:")
+                    TextField("", value: $viewModel.fuelVariable.mileageSinceLast, format: .number)
+                        .multilineTextAlignment(.trailing)
+                        .keyboardType(.decimalPad)
+                    Text("km")
                 }
                 HStack {
 //                    Text("When you fuel up:")

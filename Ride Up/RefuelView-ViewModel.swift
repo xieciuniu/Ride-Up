@@ -98,7 +98,7 @@ extension RefuelView {
         }
         
         // Millage
-        @Published var mileageOption = "Overall"
+        @Published var mileageOption = "Since last refueling"
         let mileageOptions = ["Overall", "Since last refueling"]
         var isMileageOverall: Bool {
             switch mileageOption {
@@ -146,12 +146,13 @@ extension RefuelView {
         
         func addRefill(cars: Cars) {
             
-            let refillCounted = FuelEconomy(fuelEconomy: economyScore, mileage: allMileage, price: amountCounted, tankedFuel: tankedFuel, date: Date.now)
+//            let refillCounted = FuelEconomy(fuelEconomy: economyScore, mileage: allMileage, price: amountCounted, tankedFuel: tankedFuel, date: Date.now)
+            let refillCounted = FuelEconomy(isFull: isFull, mileageOverall: mileageAll, mileageSinceLast: mileageSinceRefueling, priceOverall: fuelPerLiterWasChanged ? amountCounted : fuelPrice, pricePerLiter: fuelPerLiterWasChanged ? fuelPricePerLiter : amountCounted, tankedFuel: tankedFuel, date: Date.now)
 
-            let refill = FuelEconomy(fuelEconomy: economyScore, mileage: allMileage, price: fuelPrice, tankedFuel: tankedFuel, date: Date.now)
+//            let refill = FuelEconomy(fuelEconomy: economyScore, mileage: allMileage, price: fuelPrice, tankedFuel: tankedFuel, date: Date.now)
             
             if let indx = cars.cars.firstIndex(where: {$0.id == car.id }) {
-                cars.cars[indx].fuel.append(fuelPerLiterWasChanged ? refillCounted : refill)
+                cars.cars[indx].fuel.append(refillCounted)
             }
         }
         

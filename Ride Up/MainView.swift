@@ -23,8 +23,10 @@ struct MainView: View {
         var numberOfIteration: Double = 0
         
         for item in car.fuel {
-            average += item.fuelEconomy
-            numberOfIteration += 1
+            if (item.fuelEconomy != nil) {
+                average += item.fuelEconomy!
+                numberOfIteration += 1
+            }
         }
         if numberOfIteration == 0 { return average }
         

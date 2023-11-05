@@ -29,11 +29,11 @@ struct RefuelHistoryView: View {
                                 Spacer()
                             }
                             HStack {
-                                Text("Price \((fuel.price ?? 0), format: viewModel.waluta)")
+                                Text("Price \((fuel.priceOverall ?? 0), format: viewModel.waluta)")
                                 Spacer()
                             }
                             HStack {
-                                Text("Fuel economy: \(fuel.fuelEconomy, specifier: "%.2f") \(viewModel.economyUnit)")
+                                Text("Fuel economy: \(fuel.fuelEconomy ?? 5, specifier: "%.2f") \(viewModel.economyUnit)")
                                 Spacer()
                             }
                         }
