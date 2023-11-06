@@ -20,11 +20,12 @@ struct RefuelEditView: View {
                 HStack{
                     Text("Tanked fuel: ")
 //                    Spacer()
-                    TextField("", value: $viewModel.fuelVariable.tankedFuel , format: .number)
+                    TextField("", value: $viewModel.fuelVariable.tankedFuel, format: .number)
                         .multilineTextAlignment(.trailing)
                         .keyboardType(.decimalPad)
                     Text("l")
                 }
+                Text("\(viewModel.value.formatted(.measurement(width: .abbreviated, usage: .asProvided, numberFormatStyle: .number)))")
                 HStack {
                     Text("Fuel price per liter:")
                     TextField("", value: $viewModel.fuelVariable.pricePerLiter, format: viewModel.waluta)
@@ -57,8 +58,17 @@ struct RefuelEditView: View {
 //                        .multilineTextAlignment(.trailing)
                 }
                 
+                
             }
             
+            Section("Refil type"){
+                Picker("Refil type", selection: $viewModel.refillType) {
+                    ForEach(viewModel.refillOptions, id: \.self) { key in
+                        Text(key)
+                    }
+                }
+                .pickerStyle(.segmented)
+            }
         }
         .toolbar{
             Button("Save") {

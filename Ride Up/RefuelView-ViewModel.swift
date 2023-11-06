@@ -144,20 +144,44 @@ extension RefuelView {
             }
         }
         
-        func addRefill(cars: Cars) {
-            
-//            let refillCounted = FuelEconomy(fuelEconomy: economyScore, mileage: allMileage, price: amountCounted, tankedFuel: tankedFuel, date: Date.now)
-            let refillCounted = FuelEconomy(isFull: isFull, mileageOverall: mileageAll, mileageSinceLast: mileageSinceRefueling, priceOverall: fuelPerLiterWasChanged ? amountCounted : fuelPrice, pricePerLiter: fuelPerLiterWasChanged ? fuelPricePerLiter : amountCounted, tankedFuel: tankedFuel, date: Date.now)
+        let waluta: FloatingPointFormatStyle<Double>.Currency = .currency(code: Locale.current.currency?.identifier ?? "USD")
 
-//            let refill = FuelEconomy(fuelEconomy: economyScore, mileage: allMileage, price: fuelPrice, tankedFuel: tankedFuel, date: Date.now)
+        
+        
+        func addRefill(cars: Cars) {
+            let refillCounted = FuelEconomy(isFull: isFull, mileageOverall: mileageOverAllCount(), mileageSinceLast: mileageSinceLastRefuelCount(), priceOverall: extractedFunc(), pricePerLiter: extractedFunc1(), tankedFuel: tankedFuel, date: Date.now)
+
             
             if let indx = cars.cars.firstIndex(where: {$0.id == car.id }) {
                 cars.cars[indx].fuel.append(refillCounted)
             }
         }
         
-        let waluta: FloatingPointFormatStyle<Double>.Currency = .currency(code: Locale.current.currency?.identifier ?? "USD")
         
+        // method to get proper value of fuel price and fuel price per liter when adding to car history
+        fileprivate func extractedFunc() -> Double {
+            return fuelPerLiterWasChanged ? amountCounted : fuelPrice
+        }
+        
+        fileprivate func extractedFunc1() -> Double {
+            return fuelPerLiterWasChanged ? fuelPricePerLiter : amountCounted
+        }
+        
+        // function to add mileage to car history
+        func mileageOverAllCount() -> Double {
+            if (isMileageOverall) {
+                return mileageAll
+            } else {
+                return mileageSinceRefueling + (car.millage ?? 0)
+            }
+        }
+        func mileageSinceLastRefuelCount() -> Double {
+            if (!isMileageOverall) {
+                return mileageSinceRefueling
+            } else {
+                return mileageAll - (car.millage ?? 0 )
+            }
+        }
     }
 }
 

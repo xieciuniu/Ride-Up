@@ -33,7 +33,12 @@ struct RefuelHistoryView: View {
                                 Spacer()
                             }
                             HStack {
-                                Text("Fuel economy: \(fuel.fuelEconomy ?? 5, specifier: "%.2f") \(viewModel.economyUnit)")
+                                
+                                if let fEconomy = fuel.fuelEconomy {
+                                    Text("Fuel economy: \(fEconomy, specifier: "%.2f") \(viewModel.economyUnit)")
+                                } else {
+                                    Text("Fuel economy: -- \(viewModel.economyUnit)")
+                                }
                                 Spacer()
                             }
                         }
