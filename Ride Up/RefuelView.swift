@@ -206,6 +206,9 @@ struct RefuelView: View {
                     Button("Add") {
 //                        addRefile()
                         viewModel.addRefill(cars: cars)
+                        if let thisCar = cars.cars.first(where: {$0.isChosen == true }) {
+                            thisCar.millage = viewModel.mileageOverAllCount()
+                        }
                         cars.save()
                         dismiss()
                     }

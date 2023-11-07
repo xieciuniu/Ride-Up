@@ -38,12 +38,22 @@ struct RefuelEditView: View {
                         .multilineTextAlignment(.trailing)
                         .keyboardType(.decimalPad)
                 }
+                
+                HStack {
+                    Text("Odometer before filling:")
+                    TextField("", value: $viewModel.fuelVariable.mileageBefore, format: .number)
+                        .multilineTextAlignment(.trailing)
+                        .keyboardType(.decimalPad)
+                    Text("km")
+                    // change to use unit choose by user
+                }
                 HStack {
                     Text("Odometer when you fill up:")
                     TextField("", value: $viewModel.fuelVariable.mileageOverall, format: .number )
                         .multilineTextAlignment(.trailing)
                         .keyboardType(.decimalPad)
                     Text("km")
+                    //change to variable user choose
                 }
                 HStack {
                     Text("Mileage since last refill:")
@@ -51,6 +61,7 @@ struct RefuelEditView: View {
                         .multilineTextAlignment(.trailing)
                         .keyboardType(.decimalPad)
                     Text("km")
+                    // change to variable user choose 
                 }
                 HStack {
 //                    Text("When you fuel up:")

@@ -10,7 +10,7 @@ import SwiftUI
 
 struct FuelEconomy: Codable, Hashable {
     var id = UUID()
-    var isFull: Bool = true
+
     var fuelEconomy: Double? {
         if (isFull) {
             if let fuel = tankedFuel {
@@ -18,14 +18,23 @@ struct FuelEconomy: Codable, Hashable {
                     return (fuel * 100) / sinceLast
                 }
             }
-        } 
+        }
         return nil
     }
+    
+    var isFull: Bool = true
+    
+    var isMileageOverallChanged: Bool?
+    var mileageBefore: Double?
     var mileageOverall: Double?
     var mileageSinceLast: Double?
+    
+    var isPricePerLiterChanged: Bool?
     var priceOverall: Double?
     var pricePerLiter: Double?
+    
     var tankedFuel: Double?
+    
     var date: Date?
 }
 

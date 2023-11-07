@@ -149,7 +149,8 @@ extension RefuelView {
         
         
         func addRefill(cars: Cars) {
-            let refillCounted = FuelEconomy(isFull: isFull, mileageOverall: mileageOverAllCount(), mileageSinceLast: mileageSinceLastRefuelCount(), priceOverall: extractedFunc(), pricePerLiter: extractedFunc1(), tankedFuel: tankedFuel, date: Date.now)
+//            let refillCounted = FuelEconomy(isFull: isFull, mileageOverall: mileageOverAllCount(), mileageSinceLast: mileageSinceLastRefuelCount(), priceOverall: extractedFunc(), pricePerLiter: extractedFunc1(), tankedFuel: tankedFuel, date: Date.now)
+            let refillCounted = FuelEconomy(isFull: isFull, isMileageOverallChanged: isMileageOverall, mileageBefore: car.millage, mileageOverall: mileageOverAllCount(), mileageSinceLast: mileageSinceLastRefuelCount(), isPricePerLiterChanged: fuelPerLiterWasChanged, priceOverall: extractedFunc(), pricePerLiter: extractedFunc1(), tankedFuel: tankedFuel, date: Date.now)
 
             
             if let indx = cars.cars.firstIndex(where: {$0.id == car.id }) {
