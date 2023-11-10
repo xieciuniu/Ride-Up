@@ -50,7 +50,7 @@ struct CheckListItem: Codable, Identifiable, Hashable {
     var checkName: String
     var when: DateComponents
     var lastCheck: Date
-    var needToCheck: Bool = true
+    var needToCheck: Bool = false
     var nextCheck: Date {
         if let next = Calendar.current.date(byAdding: when, to: lastCheck) {
             return next

@@ -33,7 +33,12 @@ extension AddChecklistView {
             }
         }
         func addMonth() {
-            cIWhen.month! += 1
+            if cIWhen.month! < 11 {
+                cIWhen.month! += 1
+            } else {
+                cIWhen.month = 0
+                cIWhen.year! += 1
+            }
         }
         func minusMonth() {
             if cIWhen.month! > 0 {
@@ -41,7 +46,12 @@ extension AddChecklistView {
             }
         }
         func addDay() {
-            cIWhen.day! += 1
+            if cIWhen.day! < 30 {
+                cIWhen.day! += 1
+            } else {
+                cIWhen.day = 0
+                cIWhen.month! += 1
+            }
         }
         func minusDay() {
             if cIWhen.day! > 0 {
@@ -49,7 +59,12 @@ extension AddChecklistView {
             }
         }
         func addHour() {
-            cIWhen.hour! += 1
+            if cIWhen.hour! < 23 {
+                cIWhen.hour! += 1
+            } else {
+                cIWhen.hour = 0
+                cIWhen.day! += 1
+            }
         }
         func minusHour() {
             if cIWhen.hour! > 0 {

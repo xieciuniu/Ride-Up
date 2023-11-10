@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct RepairView: View {
     @Environment(\.dismiss) var dismiss
@@ -21,7 +22,6 @@ struct RepairView: View {
     @StateObject var viewModel = ViewModel()
     
     var body: some View {
-        NavigationView {
             Form {
                 
                 Section("Type of work") {
@@ -34,17 +34,39 @@ struct RepairView: View {
                 }
                 
                 // correct way it show name of section
-                Section("Which part was \(viewModel.typeOfWork)") {
-                    Picker("Part:", selection: $viewModel.part) {
-                        ForEach(viewModel.carParts, id: \.self){
-                            Text($0)
+                Section("Part") {
+                    if false {
+                        Picker("Part:", selection: $viewModel.part) {
+                            ForEach(viewModel.carParts, id: \.self){
+                                Text($0)
+                            }
+                        }
+                        .pickerStyle(.wheel)
+                    } else {
+                        HStack {
+                            Text("Custom:")
+                            TextField("", text: $viewModel.customPart)
+                                .multilineTextAlignment(.trailing)
                         }
                     }
-                    .pickerStyle(.wheel)
                 }
                 
                 Section("recipe photo"){
-                    // photo of recipe for probably future needs
+                    HStack {
+                        if viewModel.selectedPhoto != nil {
+                            if let uiImage = UIImage(data: viewModel.selectedPhoto!) {
+                                Image(uiImage: uiImage)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 80, height: 80)
+                                
+                                Spacer()
+                            }
+                        }
+                        PhotosPicker(selection: $viewModel.photo, matching: .images) {
+                            Text("Add photo")
+                        }
+                    }
                 }
                 
                 Section("Price") {
@@ -67,11 +89,6 @@ struct RepairView: View {
             }
             
             .toolbar {
-                ToolbarItem(placement: .navigationBarLeading){
-                    Button("Cancel", role: .cancel) {
-                        dismiss()
-                    }
-                }
                 ToolbarItem(placement: .confirmationAction){
                     Button("Add") {
                         // method to add repair to car
@@ -80,7 +97,14 @@ struct RepairView: View {
                 }
             }
             
-        }
+            .onChange(of: viewModel.photo) { newItem in
+                Task {
+                    if let data = try? await newItem?.loadTransferable(type: Data.self) {
+                        viewModel.selectedPhoto = data
+                    }
+                }
+            }
+        
         .onAppear{
             viewModel.car = car
         }

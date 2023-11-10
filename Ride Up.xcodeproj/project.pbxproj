@@ -10,8 +10,6 @@
 		DA0F6EF12ACAE1250000FBAF /* RepairView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0F6EF02ACAE1250000FBAF /* RepairView.swift */; };
 		DA0F6EF32ACAE1590000FBAF /* RepairView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0F6EF22ACAE1590000FBAF /* RepairView-ViewModel.swift */; };
 		DA2A54292AEB922600DD078D /* RefuelView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2A54282AEB922600DD078D /* RefuelView-ViewModel.swift */; };
-		DA34BE002ACD98750090FA9A /* ReplacementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA34BDFF2ACD98750090FA9A /* ReplacementView.swift */; };
-		DA34BE022ACD98840090FA9A /* ReplacementView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA34BE012ACD98840090FA9A /* ReplacementView-ViewModel.swift */; };
 		DA3CFD832AE39CC7003A4A43 /* ShowRemainderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3CFD822AE39CC7003A4A43 /* ShowRemainderView.swift */; };
 		DA3CFD852AE39CDA003A4A43 /* ShowRemaindersView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3CFD842AE39CDA003A4A43 /* ShowRemaindersView-ViewModel.swift */; };
 		DA5EA4BA2AB981640056F241 /* Ride_UpApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5EA4B92AB981640056F241 /* Ride_UpApp.swift */; };
@@ -42,15 +40,12 @@
 		DAEAEBEA2AD1379E0076D67F /* ChecklistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEAEBE92AD1379E0076D67F /* ChecklistView.swift */; };
 		DAEAEBEC2AD137AC0076D67F /* ChecklistView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEAEBEB2AD137AC0076D67F /* ChecklistView-ViewModel.swift */; };
 		DAEB7B862AD3C53A0008EC0E /* EditChecklistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB7B852AD3C53A0008EC0E /* EditChecklistView.swift */; };
-		DAF1FA8C2ABC2AD2008FCAA9 /* CarClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF1FA8B2ABC2AD2008FCAA9 /* CarClockView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		DA0F6EF02ACAE1250000FBAF /* RepairView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepairView.swift; sourceTree = "<group>"; };
 		DA0F6EF22ACAE1590000FBAF /* RepairView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RepairView-ViewModel.swift"; sourceTree = "<group>"; };
 		DA2A54282AEB922600DD078D /* RefuelView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RefuelView-ViewModel.swift"; sourceTree = "<group>"; };
-		DA34BDFF2ACD98750090FA9A /* ReplacementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplacementView.swift; sourceTree = "<group>"; };
-		DA34BE012ACD98840090FA9A /* ReplacementView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReplacementView-ViewModel.swift"; sourceTree = "<group>"; };
 		DA3CFD822AE39CC7003A4A43 /* ShowRemainderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowRemainderView.swift; sourceTree = "<group>"; };
 		DA3CFD842AE39CDA003A4A43 /* ShowRemaindersView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShowRemaindersView-ViewModel.swift"; sourceTree = "<group>"; };
 		DA5EA4B62AB981640056F241 /* Ride Up.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ride Up.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,7 +77,6 @@
 		DAEAEBE92AD1379E0076D67F /* ChecklistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistView.swift; sourceTree = "<group>"; };
 		DAEAEBEB2AD137AC0076D67F /* ChecklistView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChecklistView-ViewModel.swift"; sourceTree = "<group>"; };
 		DAEB7B852AD3C53A0008EC0E /* EditChecklistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditChecklistView.swift; sourceTree = "<group>"; };
-		DAF1FA8B2ABC2AD2008FCAA9 /* CarClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarClockView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +115,7 @@
 				DA5EA4CD2AB9A2F40056F241 /* TipsView.swift */,
 				DA5EA4CB2AB9A29B0056F241 /* GarageView.swift */,
 				DA9F9E032ABA033A001C9D6B /* GarageView-ViewModel.swift */,
+				DA9F9E012AB9FC09001C9D6B /* AddCarView.swift */,
 				DA5EA4C92AB98DD90056F241 /* ReportView.swift */,
 				DA5EA4C72AB98CF30056F241 /* MainView.swift */,
 				DA9F9DFF2AB9FB10001C9D6B /* MainView-ViewModel.swift */,
@@ -130,8 +125,6 @@
 				DAB3B5BA2AD69E650074BBAF /* AddChecklistView-ViewModel.swift */,
 				DAEB7B852AD3C53A0008EC0E /* EditChecklistView.swift */,
 				DA679C732AD7CB790015B90C /* EditChecklistView-ViewModel.swift */,
-				DA34BDFF2ACD98750090FA9A /* ReplacementView.swift */,
-				DA34BE012ACD98840090FA9A /* ReplacementView-ViewModel.swift */,
 				DA0F6EF02ACAE1250000FBAF /* RepairView.swift */,
 				DA0F6EF22ACAE1590000FBAF /* RepairView-ViewModel.swift */,
 				DAC9B7152AC952AC009CDA25 /* NewRemainderView.swift */,
@@ -146,8 +139,6 @@
 				DAB15C752AF1551B00590ABB /* RefuelHistoryView-ViewModel.swift */,
 				DAAEE0012AF7A45B0035E770 /* RefuelEditView.swift */,
 				DAAEE0032AF7A4710035E770 /* RefuelEditView-ViewModel.swift */,
-				DAF1FA8B2ABC2AD2008FCAA9 /* CarClockView.swift */,
-				DA9F9E012AB9FC09001C9D6B /* AddCarView.swift */,
 				DA5EA4D12AB9A6F90056F241 /* Car.swift */,
 				DA5EA4BD2AB981650056F241 /* Assets.xcassets */,
 				DA5EA4BF2AB981650056F241 /* Preview Content */,
@@ -240,7 +231,6 @@
 				DAB712192AC0AD4900BE12F3 /* RefuelView.swift in Sources */,
 				DA9F9E002AB9FB10001C9D6B /* MainView-ViewModel.swift in Sources */,
 				DAB3B5B92AD69E4F0074BBAF /* AddChecklistView.swift in Sources */,
-				DA34BE002ACD98750090FA9A /* ReplacementView.swift in Sources */,
 				DAAEE0042AF7A4710035E770 /* RefuelEditView-ViewModel.swift in Sources */,
 				DAC9B7162AC952AC009CDA25 /* NewRemainderView.swift in Sources */,
 				DA5EA4CC2AB9A29B0056F241 /* GarageView.swift in Sources */,
@@ -248,7 +238,6 @@
 				DAAEE0022AF7A45B0035E770 /* RefuelEditView.swift in Sources */,
 				DA954F4A2AE672B00091BF11 /* EditRemainderView.swift in Sources */,
 				DAEB7B862AD3C53A0008EC0E /* EditChecklistView.swift in Sources */,
-				DAF1FA8C2ABC2AD2008FCAA9 /* CarClockView.swift in Sources */,
 				DA0F6EF12ACAE1250000FBAF /* RepairView.swift in Sources */,
 				DAB15C762AF1551B00590ABB /* RefuelHistoryView-ViewModel.swift in Sources */,
 				DAEAEBEA2AD1379E0076D67F /* ChecklistView.swift in Sources */,
@@ -266,7 +255,6 @@
 				DAEAEBEC2AD137AC0076D67F /* ChecklistView-ViewModel.swift in Sources */,
 				DA5EA4BA2AB981640056F241 /* Ride_UpApp.swift in Sources */,
 				DA954F4C2AE672C00091BF11 /* EditRemainderView-ViewModel.swift in Sources */,
-				DA34BE022ACD98840090FA9A /* ReplacementView-ViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

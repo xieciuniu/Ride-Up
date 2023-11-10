@@ -24,8 +24,8 @@ struct AddChecklistView: View {
                     }
                     
                 }
-                Section() {
-                    Text("choose interval of check")
+                Section("Interval of check") {
+//                    Text("choose interval of check")
                     
                     Text(viewModel.cIWhen.description)
                     
@@ -88,7 +88,7 @@ struct AddChecklistView: View {
                 }
                 
                 Section {
-                    DatePicker("Last check", selection: $viewModel.cILast)
+                    DatePicker("Last check:", selection: $viewModel.cILast)
                     
                 }
             }

@@ -26,9 +26,7 @@ extension EditChecklistView {
         
         // function to add/minus
         func plusYear() {
-//            if item.when.year != nil {
                 item.when.year! += 1
-//            } else {item.when.year = 1}
         }
         func minusYear() {
             if item.when.year != nil {
