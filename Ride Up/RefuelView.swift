@@ -28,71 +28,20 @@ struct RefuelView: View {
                     .pickerStyle(.segmented)
                 }
                 
-                if (!viewModel.isFull) {
-                    Section ("Fuel Tank Status"){
-                        HStack {
-                            VStack{
-                                VStack {
-                                    Text("Before refuelling")
-                                    Picker("Status", selection: $viewModel.tankStatusBefore) {
-                                        ForEach(0..<8){
-                                            Text("\(viewModel.tankStatuses[$0])")
-                                                .tag(Double($0))
-                                        }
-                                    }
-                                    .pickerStyle(.segmented)
-                                    
-                                    HStack {
-                                        Text("|0")
-                                        Spacer()
-                                        Text("1/2")
-                                        Spacer()
-                                        Text("1|")
-                                    }
-                                }
-                                .padding(.bottom)
-                                
-                                VStack{
-                                    Text("After fuelling")
-                                    
-                                    Picker("Status", selection: $viewModel.tankStatus) {
-                                        ForEach(1..<9){
-                                            Text("\(viewModel.tankStatuses[$0])")
-                                                .tag(Double($0))
-                                        }
-                                    }
-                                    .pickerStyle(.segmented)
-                                    
-                                    HStack {
-                                        Text("|0")
-                                        Spacer()
-                                        Text("1/2")
-                                        Spacer()
-                                        Text("1|")
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                
-                // test section
-                Section("tank capacity test") {
-                    Text("tank capacity of this car is \(car.tankCapacity)")
-                }
-                
                 Section("Fuel") {
                     HStack {
                         Text("How much fuel")
+                            .foregroundStyle( viewModel.tankedFuelCheck ? .black  : .red )
                         
                         Spacer()
                         
                         TextField("0", value: $viewModel.tankedFuel, format: .number)
+//                            .foregroundStyle(Double(car.tankCapacity) >= (viewModel.tankedFuel ?? 1) ? .primary : .red)
+                            .foregroundStyle( viewModel.tankedFuelCheck ? .black  : .red )
                             .keyboardType(.decimalPad)
                             .multilineTextAlignment(.trailing)
-                            .foregroundColor(Double(car.tankCapacity) >= (viewModel.tankedFuel ?? 1) ? .primary : .red)
                         Text("l")
-                    }
+                            .foregroundStyle( viewModel.tankedFuelCheck ? .black  : .red )                    }
                     
                     HStack {
                         Text("Fuel price per liter")
@@ -212,6 +161,7 @@ struct RefuelView: View {
                         cars.save()
                         dismiss()
                     }
+                    .disabled( (viewModel.tankedFuel ?? 0) > Double(car.tankCapacity))
                 }
             }
             
@@ -223,6 +173,9 @@ struct RefuelView: View {
             }
             .onChange(of: viewModel.tankedFuel) { _ in
                 viewModel.tankedWasChanged()
+            }
+            .onChange(of: viewModel.tankedFuel) { fuel in
+                if (fuel ?? 1) > Double(car.tankCapacity) { viewModel.tankedFuelCheck = false }
             }
             .onAppear(perform: {
                 viewModel.extractCar(cars: cars)

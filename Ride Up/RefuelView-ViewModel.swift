@@ -48,19 +48,20 @@ extension RefuelView {
         
         
         //tank status
-        @Published var tankStatus: Double = 6
-        @Published var tankStatusBefore: Double = 1
-        let tankStatuses = ["0", "1/8", "2/8", "3/8", "4/8", "5/8", "6/8", "7/8", "1"]
-        var tankAfter: Double {
-            tankStatus / 8
-        }
-        var tankBefore: Double {
-            tankStatusBefore / 8
-        }
+//        @Published var tankStatus: Double = 6
+//        @Published var tankStatusBefore: Double = 1
+//        let tankStatuses = ["0", "1/8", "2/8", "3/8", "4/8", "5/8", "6/8", "7/8", "1"]
+//        var tankAfter: Double {
+//            tankStatus / 8
+//        }
+//        var tankBefore: Double {
+//            tankStatusBefore / 8
+//        }
         
         
         // fuel variables
         @Published var tankedFuel: Double? = nil
+        var tankedFuelCheck : Bool = true
         @Published var fuelPricePerLiter: Double = 3.55
         @Published var fuelPrice: Double = 123.45
         var fuelPerLiterWasChanged: Bool = true
@@ -68,6 +69,11 @@ extension RefuelView {
         
         @Published var toKick = 1
         
+        func tankedFuelChange() -> Double {
+            if tankedFuel != nil {
+                return tankedFuel!
+            } else { return 1 }
+        }
         
         func perLiterChanged() {
             if let tanked = tankedFuel {
