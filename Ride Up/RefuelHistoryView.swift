@@ -46,6 +46,7 @@ struct RefuelHistoryView: View {
                 }
             }
         }
+        .navigationTitle("Refuel History")
         .onAppear(perform: {
             viewModel.extractCar(cars: cars)
         })

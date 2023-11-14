@@ -25,18 +25,26 @@ struct RefuelEditView: View {
                         .keyboardType(.decimalPad)
                     Text("l")
                 }
-                Text("\(viewModel.value.formatted(.measurement(width: .abbreviated, usage: .asProvided, numberFormatStyle: .number)))")
+               
                 HStack {
                     Text("Fuel price per liter:")
                     TextField("", value: $viewModel.fuelVariable.pricePerLiter, format: viewModel.waluta)
                         .multilineTextAlignment(.trailing)
                         .keyboardType(.decimalPad)
+                        .foregroundStyle(viewModel.fuelVariable.isPricePerLiterChanged ?? false ? .black : .gray)
+                        .onTapGesture {
+                            viewModel.fuelVariable.isPricePerLiterChanged = true
+                        }
                 }
                 HStack{
                     Text("Price for fuel:")
                     TextField("", value: $viewModel.fuelVariable.priceOverall, format: viewModel.waluta)
                         .multilineTextAlignment(.trailing)
                         .keyboardType(.decimalPad)
+                        .foregroundStyle(viewModel.fuelVariable.isPricePerLiterChanged ?? false ? .gray : .black)
+                        .onTapGesture {
+                            viewModel.fuelVariable.isPricePerLiterChanged = false
+                        }
                 }
                 
                 HStack {

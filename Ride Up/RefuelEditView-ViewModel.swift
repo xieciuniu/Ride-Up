@@ -24,6 +24,12 @@ extension RefuelEditView {
         }
         
         func saveVariable(){
+            if (fuelVariable.isPricePerLiterChanged == true) {
+                fuelVariable.priceOverall = fuelVariable.pricePerLiter! * fuelVariable.tankedFuel!
+            } else if (fuelVariable.isPricePerLiterChanged == false) {
+                fuelVariable.pricePerLiter = fuelVariable.priceOverall! / fuelVariable.tankedFuel!
+            }
+            
             self.fuelVariable.date = date
             self.fuelVariable.isFull = isFull
         }

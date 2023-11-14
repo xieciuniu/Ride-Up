@@ -64,14 +64,16 @@ struct EditChecklistView: View {
                         Button("-") { viewModel.minusHour() }
                             .buttonStyle(.borderedProminent)
                     }
-                    Text("minutes only for testing purpose")
-                    HStack {
-                        Button("+") { viewModel.minutes(1) }
-                            .buttonStyle(.borderedProminent)
-                        Spacer()
-                        Button("-") { viewModel.minutes(-1) }
-                            .buttonStyle(.borderedProminent)
-                    }
+                    
+                    // adding minutes for testing purpose
+//                    Text("minutes only for testing purpose")
+//                    HStack {
+//                        Button("+") { viewModel.minutes(1) }
+//                            .buttonStyle(.borderedProminent)
+//                        Spacer()
+//                        Button("-") { viewModel.minutes(-1) }
+//                            .buttonStyle(.borderedProminent)
+//                    }
                 }
                 
                 Section("Reminders") {
