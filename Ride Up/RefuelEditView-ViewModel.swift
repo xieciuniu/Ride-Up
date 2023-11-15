@@ -23,11 +23,19 @@ extension RefuelEditView {
             }
         }
         
+//        @Published var odometerChange: Bool? = nil
+        
         func saveVariable(){
             if (fuelVariable.isPricePerLiterChanged == true) {
                 fuelVariable.priceOverall = fuelVariable.pricePerLiter! * fuelVariable.tankedFuel!
             } else if (fuelVariable.isPricePerLiterChanged == false) {
                 fuelVariable.pricePerLiter = fuelVariable.priceOverall! / fuelVariable.tankedFuel!
+            }
+            
+            if (fuelVariable.isMileageOverallChanged == true) {
+                fuelVariable.mileageSinceLast = (fuelVariable.mileageOverall ?? 1) - (fuelVariable.mileageBefore ?? 0)
+            } else if (fuelVariable.isMileageOverallChanged == false ) {
+                fuelVariable.mileageOverall = (fuelVariable.mileageSinceLast ?? 0 ) + (fuelVariable.mileageBefore ?? 0)
             }
             
             self.fuelVariable.date = date

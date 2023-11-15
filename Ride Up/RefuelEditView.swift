@@ -52,6 +52,10 @@ struct RefuelEditView: View {
                     TextField("", value: $viewModel.fuelVariable.mileageBefore, format: .number)
                         .multilineTextAlignment(.trailing)
                         .keyboardType(.decimalPad)
+                        .foregroundStyle(viewModel.fuelVariable.isMileageOverallChanged ?? true ? .black : .gray)
+                        .onTapGesture {
+                            viewModel.fuelVariable.isMileageOverallChanged = true
+                        }
                     Text("km")
                     // change to use unit choose by user
                 }
@@ -60,6 +64,10 @@ struct RefuelEditView: View {
                     TextField("", value: $viewModel.fuelVariable.mileageOverall, format: .number )
                         .multilineTextAlignment(.trailing)
                         .keyboardType(.decimalPad)
+                        .foregroundStyle(viewModel.fuelVariable.isMileageOverallChanged ?? true ? .black : .gray)
+                        .onTapGesture {
+                            viewModel.fuelVariable.isMileageOverallChanged = true
+                        }
                     Text("km")
                     //change to variable user choose
                 }
@@ -68,6 +76,10 @@ struct RefuelEditView: View {
                     TextField("", value: $viewModel.fuelVariable.mileageSinceLast, format: .number)
                         .multilineTextAlignment(.trailing)
                         .keyboardType(.decimalPad)
+                        .foregroundStyle(viewModel.fuelVariable.isMileageOverallChanged ?? false ? .gray : .black)
+                        .onTapGesture {
+                            viewModel.fuelVariable.isMileageOverallChanged = false
+                        }
                     Text("km")
                     // change to variable user choose 
                 }
