@@ -8,6 +8,10 @@
 import Foundation
 import SwiftUI
 
+struct RepairStruct: Codable, Hashable {
+    
+}
+
 struct FuelEconomy: Codable, Hashable {
     var id = UUID()
 

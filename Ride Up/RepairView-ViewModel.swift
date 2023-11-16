@@ -18,6 +18,7 @@ extension RepairView {
         
         @Published var typeOfWork: String = "Repair"
         let optionsOfWork: [String] = ["Repair", "Replace"]
+        @Published var isCustom: Bool = false
         
         @Published var part: String = "Oil"
         @Published var customPart: String = ""

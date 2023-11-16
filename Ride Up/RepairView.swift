@@ -23,31 +23,25 @@ struct RepairView: View {
     
     var body: some View {
             Form {
-                
-                Section("Type of work") {
-                    Picker("repair/change", selection: $viewModel.typeOfWork) {
-                        ForEach(viewModel.optionsOfWork, id: \.self) {
-                            Text($0)
-                        }
-                    }
-                    .pickerStyle(.segmented)
+                Section() {
+                    Toggle("Custom name: ", isOn: $viewModel.isCustom)
                 }
                 
                 // correct way it show name of section
                 Section("Part") {
-                    if false {
+                    if (viewModel.isCustom) {
+                        HStack {
+                            Text("Custom:")
+                            TextField("", text: $viewModel.customPart)
+                                .multilineTextAlignment(.trailing)
+                        }
+                    } else {
                         Picker("Part:", selection: $viewModel.part) {
                             ForEach(viewModel.carParts, id: \.self){
                                 Text($0)
                             }
                         }
                         .pickerStyle(.wheel)
-                    } else {
-                        HStack {
-                            Text("Custom:")
-                            TextField("", text: $viewModel.customPart)
-                                .multilineTextAlignment(.trailing)
-                        }
                     }
                 }
                 
