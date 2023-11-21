@@ -163,11 +163,10 @@ struct MainView: View {
                             .foregroundStyle(.blue)
                     }
                     
+                    
                     // next tab with repairs
                     NavigationLink {
-                        ForEach(1..<10){
-                            Text(String($0))
-                        }
+                        RepairHistoryView()
                     } label: {
                         Text("Repair History")
                             .foregroundStyle(.blue)

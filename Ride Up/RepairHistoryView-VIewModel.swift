@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+extension RepairHistoryView {
+    @MainActor class ViewModel: ObservableObject {
+        
+        @Published var car = Car()
+        
+    }
+}
