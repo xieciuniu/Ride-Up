@@ -8,11 +8,54 @@
 import SwiftUI
 
 struct RepairHistoryView: View {
+    @EnvironmentObject var cars: Cars
+    @StateObject var viewModel = ViewModel()
+    var car: Car {
+        if let chosen = cars.cars.first(where: {$0.isChosen == true}) {
+            return chosen
+        } else { return Car() }
+    }
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Form{
+            ForEach(car.repairStruct) { repair in
+                ZStack{
+                    NavigationLink {
+                        RepairEditView(repairID: repair.id)
+                    } label: {
+//                        Rectangle()
+                    }
+                    
+                    HStack {
+                        VStack{
+                            Text(repair.partName)
+                            Text(repair.dateOfRepair.formatted())
+                        }
+                        
+                        Spacer()
+                        
+                        if repair.recipePhoto != nil{
+                            if let uiImage = UIImage(data: repair.recipePhoto!) {
+                                Image(uiImage: uiImage)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 80, height: 80)
+                                
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .navigationTitle("Repair History")
+        
+        .onAppear(perform: {
+            viewModel.car = car
+        })
     }
 }
 
 #Preview {
     RepairHistoryView()
+        .environmentObject(Cars())
 }

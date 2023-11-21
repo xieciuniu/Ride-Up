@@ -8,8 +8,13 @@
 import Foundation
 import SwiftUI
 
-struct RepairStruct: Codable, Hashable {
-    
+struct RepairStruct: Codable, Hashable, Identifiable {
+    var id = UUID()
+    var dateOfRepair: Date
+    var partName: String
+    var recipePhoto: Data?
+    var priceOfItem: Double?
+    var priceOfWork: Double?
 }
 
 struct FuelEconomy: Codable, Hashable {
@@ -122,6 +127,7 @@ class Car: Identifiable, Comparable, Codable {
         CheckListItem(checkName: "Spare Tire", when: DateComponents.init(month: 6), lastCheck: nil),
         CheckListItem(checkName: "Fast line", when: DateComponents.init(day: 10), lastCheck: nil)
     ]
+    var repairStruct: [RepairStruct] = []
     
     // Comparable
     static func == (lhs: Car, rhs: Car) -> Bool {

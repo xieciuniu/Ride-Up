@@ -80,12 +80,20 @@ struct RepairView: View {
                             .keyboardType(.decimalPad)
                     }
                 }
+                
+                Section("Date") {
+                    DatePicker("When ", selection: $viewModel.dateOfRepair)
+                }
             }
             
             .toolbar {
                 ToolbarItem(placement: .confirmationAction){
                     Button("Add") {
                         // method to add repair to car
+                        if let thisCar = cars.cars.firstIndex(where: {$0.isChosen == true}) {
+                            cars.cars[thisCar].repairStruct.append(viewModel.createRepairStruct())
+                        }
+                        cars.save()
                         dismiss()
                     }
                 }

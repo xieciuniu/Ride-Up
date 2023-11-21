@@ -32,5 +32,14 @@ extension RepairView {
         @Published var photo: PhotosPickerItem? = nil
         @Published var selectedPhoto: Data? = nil
         
+        @Published var dateOfRepair: Date = Date.now
+        
+        func createRepairStruct() -> RepairStruct{
+            let repairStr = RepairStruct(dateOfRepair: dateOfRepair, partName: part, recipePhoto: selectedPhoto, priceOfItem: priceOfItem, priceOfWork: priceOfWork)
+            return repairStr
+        }
+        
+        
+        
     }
 }

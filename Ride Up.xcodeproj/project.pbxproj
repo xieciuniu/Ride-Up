@@ -40,6 +40,10 @@
 		DAEAEBEA2AD1379E0076D67F /* ChecklistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEAEBE92AD1379E0076D67F /* ChecklistView.swift */; };
 		DAEAEBEC2AD137AC0076D67F /* ChecklistView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEAEBEB2AD137AC0076D67F /* ChecklistView-ViewModel.swift */; };
 		DAEB7B862AD3C53A0008EC0E /* EditChecklistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB7B852AD3C53A0008EC0E /* EditChecklistView.swift */; };
+		DAEF2DD92B0B4EAC004047FD /* RepairHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEF2DD82B0B4EAC004047FD /* RepairHistoryView.swift */; };
+		DAEF2DDB2B0B4EC4004047FD /* RepairHistoryView-VIewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEF2DDA2B0B4EC4004047FD /* RepairHistoryView-VIewModel.swift */; };
+		DAF4F4922B0C8BAF00AB16B8 /* RepairEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF4F4912B0C8BAF00AB16B8 /* RepairEditView.swift */; };
+		DAF4F4942B0C8BC100AB16B8 /* RepairEditView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF4F4932B0C8BC100AB16B8 /* RepairEditView-ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +81,10 @@
 		DAEAEBE92AD1379E0076D67F /* ChecklistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistView.swift; sourceTree = "<group>"; };
 		DAEAEBEB2AD137AC0076D67F /* ChecklistView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChecklistView-ViewModel.swift"; sourceTree = "<group>"; };
 		DAEB7B852AD3C53A0008EC0E /* EditChecklistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditChecklistView.swift; sourceTree = "<group>"; };
+		DAEF2DD82B0B4EAC004047FD /* RepairHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepairHistoryView.swift; sourceTree = "<group>"; };
+		DAEF2DDA2B0B4EC4004047FD /* RepairHistoryView-VIewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RepairHistoryView-VIewModel.swift"; sourceTree = "<group>"; };
+		DAF4F4912B0C8BAF00AB16B8 /* RepairEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepairEditView.swift; sourceTree = "<group>"; };
+		DAF4F4932B0C8BC100AB16B8 /* RepairEditView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RepairEditView-ViewModel.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +135,10 @@
 				DA679C732AD7CB790015B90C /* EditChecklistView-ViewModel.swift */,
 				DA0F6EF02ACAE1250000FBAF /* RepairView.swift */,
 				DA0F6EF22ACAE1590000FBAF /* RepairView-ViewModel.swift */,
+				DAEF2DD82B0B4EAC004047FD /* RepairHistoryView.swift */,
+				DAEF2DDA2B0B4EC4004047FD /* RepairHistoryView-VIewModel.swift */,
+				DAF4F4912B0C8BAF00AB16B8 /* RepairEditView.swift */,
+				DAF4F4932B0C8BC100AB16B8 /* RepairEditView-ViewModel.swift */,
 				DAC9B7152AC952AC009CDA25 /* NewRemainderView.swift */,
 				DAC9B7172AC95C42009CDA25 /* NewRemainderView-ViewModel.swift */,
 				DA3CFD822AE39CC7003A4A43 /* ShowRemainderView.swift */,
@@ -226,6 +238,8 @@
 			files = (
 				DAB15C742AF154FF00590ABB /* RefuelHistoryView.swift in Sources */,
 				DA5EA4D02AB9A3370056F241 /* MapView.swift in Sources */,
+				DAEF2DDB2B0B4EC4004047FD /* RepairHistoryView-VIewModel.swift in Sources */,
+				DAEF2DD92B0B4EAC004047FD /* RepairHistoryView.swift in Sources */,
 				DA5EA4CE2AB9A2F40056F241 /* TipsView.swift in Sources */,
 				DA5EA4D22AB9A6F90056F241 /* Car.swift in Sources */,
 				DAB712192AC0AD4900BE12F3 /* RefuelView.swift in Sources */,
@@ -240,9 +254,11 @@
 				DAEB7B862AD3C53A0008EC0E /* EditChecklistView.swift in Sources */,
 				DA0F6EF12ACAE1250000FBAF /* RepairView.swift in Sources */,
 				DAB15C762AF1551B00590ABB /* RefuelHistoryView-ViewModel.swift in Sources */,
+				DAF4F4942B0C8BC100AB16B8 /* RepairEditView-ViewModel.swift in Sources */,
 				DAEAEBEA2AD1379E0076D67F /* ChecklistView.swift in Sources */,
 				DA5EA4BC2AB981640056F241 /* ContentView.swift in Sources */,
 				DA0F6EF32ACAE1590000FBAF /* RepairView-ViewModel.swift in Sources */,
+				DAF4F4922B0C8BAF00AB16B8 /* RepairEditView.swift in Sources */,
 				DA5EA4C82AB98CF30056F241 /* MainView.swift in Sources */,
 				DA2A54292AEB922600DD078D /* RefuelView-ViewModel.swift in Sources */,
 				DA3CFD852AE39CDA003A4A43 /* ShowRemaindersView-ViewModel.swift in Sources */,

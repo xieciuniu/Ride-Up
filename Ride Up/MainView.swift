@@ -43,12 +43,18 @@ struct MainView: View {
                         .multilineTextAlignment(.center)
                    
                    
-                   if car.image != nil {
-                       Image(uiImage: UIImage(data: car.image!)!)
-                           .resizable()
-                           .scaledToFit()
-                           .frame(height: 150)
-                           .padding(.horizontal, 50)
+                   HStack {
+                       Spacer()
+                       
+                       if car.image != nil {
+                           Image(uiImage: UIImage(data: car.image!)!)
+                               .resizable()
+                               .scaledToFit()
+                               .frame(height: 150)
+                               .padding(.horizontal, 50)
+                       }
+                       
+                       Spacer()
                    }
                 }
                 
@@ -163,11 +169,10 @@ struct MainView: View {
                             .foregroundStyle(.blue)
                     }
                     
+                    
                     // next tab with repairs
                     NavigationLink {
-                        ForEach(1..<10){
-                            Text(String($0))
-                        }
+                        RepairHistoryView()
                     } label: {
                         Text("Repair History")
                             .foregroundStyle(.blue)
