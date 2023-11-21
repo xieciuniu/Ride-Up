@@ -14,7 +14,7 @@ extension RepairEditView {
         
         @Published var car = Car()
         
-        var thisRepair: RepairStruct = RepairStruct(dateOfRepair: Date.now, partName: "test")
+        var thisRepair: RepairStruct = RepairStruct(dateOfRepair: Date.now, partName: "test", mileageWhen: 0)
         
         func getThisRepair(id: UUID) {
             if let repair = car.repairStruct.first(where: {$0.id == id}) {
@@ -24,6 +24,7 @@ extension RepairEditView {
                 priceOfItem = thisRepair.priceOfItem
                 priceOfWork = thisRepair.priceOfWork
                 date = thisRepair.dateOfRepair
+                mileageWhen = thisRepair.mileageWhen
             }
         }
         
@@ -33,5 +34,12 @@ extension RepairEditView {
         @Published var priceOfItem: Double? = nil
         @Published var priceOfWork: Double? = nil
         @Published var date: Date = Date.now
+        @Published var mileageWhen: Double = 0
+        
+        func save(id: UUID) -> RepairStruct {
+            let repair: RepairStruct = RepairStruct(id: id, dateOfRepair: date, partName: name, recipePhoto: dataPhoto, priceOfItem: priceOfItem, priceOfWork: priceOfWork, mileageWhen: mileageWhen)
+            
+            return repair
+        }
     }
 }

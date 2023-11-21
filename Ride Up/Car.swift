@@ -15,6 +15,7 @@ struct RepairStruct: Codable, Hashable, Identifiable {
     var recipePhoto: Data?
     var priceOfItem: Double?
     var priceOfWork: Double?
+    var mileageWhen: Double
 }
 
 struct FuelEconomy: Codable, Hashable {

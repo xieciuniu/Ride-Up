@@ -9,6 +9,7 @@ import SwiftUI
 import _PhotosUI_SwiftUI
 
 struct RepairEditView: View {
+    @Environment(\.dismiss) var dismiss
     @EnvironmentObject var cars: Cars
     
     @StateObject var viewModel = ViewModel()
@@ -36,11 +37,24 @@ struct RepairEditView: View {
                         Image(uiImage: uiImage)
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 80, height: 80)
-                        
+                            .frame(width: 200, height: 200)
+                            .padding([.leading, .trailing], 90)
+                            .padding([.top, .bottom], 30)
+                            .contextMenu {
+                                Button {
+                                    let imageSaver = ImageSaver()
+                                    // Add image to Photos
+                                    imageSaver.writeToPhotoAlbum(image: uiImage)
+                                } label: {
+                                    Label("Save to Photos", systemImage: "square.and.arrow.down")
+                                }
+                            }
                     }
-                    Spacer()
-                    
+                    //                    Spacer()
+                }
+            }
+            HStack {
+                if (viewModel.dataPhoto != nil ) {
                     PhotosPicker(selection: $viewModel.photo, matching: .images) {
                         Text("Change photo")
                     }
@@ -57,21 +71,50 @@ struct RepairEditView: View {
                 TextField("", value: $viewModel.priceOfItem, format: .number)
                     .multilineTextAlignment(.trailing)
             }
+            
             HStack {
-                Text("Price of work:")
-                Spacer()
-                TextField("", value: $viewModel.priceOfItem, format: .number)
+                Text("Mileage when happened:")
+                TextField("", value: $viewModel.mileageWhen, format: .number)
                     .multilineTextAlignment(.trailing)
             }
             HStack {
-                DatePicker("", selection: $viewModel.date)
+                Text("Price of work:")
+                Spacer()
+                TextField("", value: $viewModel.priceOfWork, format: .number)
+                    .multilineTextAlignment(.trailing)
+            }
+            HStack {
+                DatePicker("Change date", selection: $viewModel.date)
             }
             
         }
+        
+        .toolbar{
+            ToolbarItem(content: {
+                Button("Save") {
+                    if let carIndx = cars.cars.firstIndex(where: {$0.isChosen == true }) {
+                        if let repairIndx = cars.cars[carIndx].repairStruct.firstIndex(where: {$0.id == repairID }) {
+                            cars.cars[carIndx].repairStruct[repairIndx] = viewModel.save(id: repairID)
+                        }
+                    }
+                    cars.save()
+                    dismiss()
+                }
+            })
+        }
+        
         .onAppear(perform: {
             viewModel.car = car
             viewModel.getThisRepair(id: repairID)
         })
+        
+        .onChange(of: viewModel.photo) { newItem in
+            Task {
+                if let data = try? await newItem?.loadTransferable(type: Data.self) {
+                    viewModel.dataPhoto = data
+                }
+            }
+        }
     }
 }
 

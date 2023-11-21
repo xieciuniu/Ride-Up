@@ -40,6 +40,7 @@
 		DAEAEBEA2AD1379E0076D67F /* ChecklistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEAEBE92AD1379E0076D67F /* ChecklistView.swift */; };
 		DAEAEBEC2AD137AC0076D67F /* ChecklistView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEAEBEB2AD137AC0076D67F /* ChecklistView-ViewModel.swift */; };
 		DAEB7B862AD3C53A0008EC0E /* EditChecklistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB7B852AD3C53A0008EC0E /* EditChecklistView.swift */; };
+		DAEDD2102B0F47FB001ABFD6 /* ImageSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEDD20F2B0F47FB001ABFD6 /* ImageSaver.swift */; };
 		DAEF2DD92B0B4EAC004047FD /* RepairHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEF2DD82B0B4EAC004047FD /* RepairHistoryView.swift */; };
 		DAEF2DDB2B0B4EC4004047FD /* RepairHistoryView-VIewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEF2DDA2B0B4EC4004047FD /* RepairHistoryView-VIewModel.swift */; };
 		DAF4F4922B0C8BAF00AB16B8 /* RepairEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF4F4912B0C8BAF00AB16B8 /* RepairEditView.swift */; };
@@ -81,6 +82,7 @@
 		DAEAEBE92AD1379E0076D67F /* ChecklistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistView.swift; sourceTree = "<group>"; };
 		DAEAEBEB2AD137AC0076D67F /* ChecklistView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChecklistView-ViewModel.swift"; sourceTree = "<group>"; };
 		DAEB7B852AD3C53A0008EC0E /* EditChecklistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditChecklistView.swift; sourceTree = "<group>"; };
+		DAEDD20F2B0F47FB001ABFD6 /* ImageSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSaver.swift; sourceTree = "<group>"; };
 		DAEF2DD82B0B4EAC004047FD /* RepairHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepairHistoryView.swift; sourceTree = "<group>"; };
 		DAEF2DDA2B0B4EC4004047FD /* RepairHistoryView-VIewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RepairHistoryView-VIewModel.swift"; sourceTree = "<group>"; };
 		DAF4F4912B0C8BAF00AB16B8 /* RepairEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepairEditView.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				DAEF2DDA2B0B4EC4004047FD /* RepairHistoryView-VIewModel.swift */,
 				DAF4F4912B0C8BAF00AB16B8 /* RepairEditView.swift */,
 				DAF4F4932B0C8BC100AB16B8 /* RepairEditView-ViewModel.swift */,
+				DAEDD20F2B0F47FB001ABFD6 /* ImageSaver.swift */,
 				DAC9B7152AC952AC009CDA25 /* NewRemainderView.swift */,
 				DAC9B7172AC95C42009CDA25 /* NewRemainderView-ViewModel.swift */,
 				DA3CFD822AE39CC7003A4A43 /* ShowRemainderView.swift */,
@@ -267,6 +270,7 @@
 				DA5EA4CA2AB98DD90056F241 /* ReportView.swift in Sources */,
 				DAC9B7182AC95C42009CDA25 /* NewRemainderView-ViewModel.swift in Sources */,
 				DA679C742AD7CB790015B90C /* EditChecklistView-ViewModel.swift in Sources */,
+				DAEDD2102B0F47FB001ABFD6 /* ImageSaver.swift in Sources */,
 				DAB3B5BB2AD69E650074BBAF /* AddChecklistView-ViewModel.swift in Sources */,
 				DAEAEBEC2AD137AC0076D67F /* ChecklistView-ViewModel.swift in Sources */,
 				DA5EA4BA2AB981640056F241 /* Ride_UpApp.swift in Sources */,
@@ -404,6 +408,7 @@
 				DEVELOPMENT_TEAM = FC3RG2JLGW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -433,6 +438,7 @@
 				DEVELOPMENT_TEAM = FC3RG2JLGW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

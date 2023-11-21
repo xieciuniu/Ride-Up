@@ -46,20 +46,18 @@ struct RepairView: View {
                 }
                 
                 Section("recipe photo"){
-                    HStack {
-                        if viewModel.selectedPhoto != nil {
-                            if let uiImage = UIImage(data: viewModel.selectedPhoto!) {
-                                Image(uiImage: uiImage)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 80, height: 80)
-                                
-                                Spacer()
-                            }
+                    if viewModel.selectedPhoto != nil {
+                        if let uiImage = UIImage(data: viewModel.selectedPhoto!) {
+                            Image(uiImage: uiImage)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 200, height: 200)
+                                .padding([.leading, .trailing], 90)
+                                .padding([.top, .bottom], 30)
                         }
-                        PhotosPicker(selection: $viewModel.photo, matching: .images) {
-                            Text("Add photo")
-                        }
+                    }
+                    PhotosPicker(selection: $viewModel.photo, matching: .images) {
+                        Text("Add photo")
                     }
                 }
                 
@@ -78,6 +76,14 @@ struct RepairView: View {
                         TextField("0.00", value: $viewModel.priceOfWork, format: .number)
                             .multilineTextAlignment(.trailing)
                             .keyboardType(.decimalPad)
+                    }
+                }
+                
+                Section("Mileage") {
+                    HStack {
+                        Text("Mileage when happened:")
+                        TextField("", value: $viewModel.mileageWhen, format: .number)
+                            .multilineTextAlignment(.trailing)
                     }
                 }
                 
@@ -109,6 +115,9 @@ struct RepairView: View {
         
         .onAppear{
             viewModel.car = car
+            if let mileage = car.millage {
+                viewModel.mileageWhen = mileage
+            }
         }
     }
 }

@@ -34,8 +34,10 @@ extension RepairView {
         
         @Published var dateOfRepair: Date = Date.now
         
+        @Published var mileageWhen: Double = 0
+        
         func createRepairStruct() -> RepairStruct{
-            let repairStr = RepairStruct(dateOfRepair: dateOfRepair, partName: part, recipePhoto: selectedPhoto, priceOfItem: priceOfItem, priceOfWork: priceOfWork)
+            let repairStr = RepairStruct(dateOfRepair: dateOfRepair, partName: part, recipePhoto: selectedPhoto, priceOfItem: priceOfItem, priceOfWork: priceOfWork, mileageWhen: mileageWhen)
             return repairStr
         }
         
