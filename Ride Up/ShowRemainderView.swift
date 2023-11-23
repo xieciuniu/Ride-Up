@@ -20,7 +20,7 @@ struct ShowRemainderView: View {
     var body: some View {
         NavigationStack {
             Form {
-                Section( viewModel.notificationArray.count == 1 ? "Notification" : "Notifications" ) {
+                Section() {
                     
                     ForEach(viewModel.notificationArray.sorted { viewModel.sortArray(one: $0.trigger!, two: $1.trigger!) }, id: \.self) {
                         
@@ -51,11 +51,9 @@ struct ShowRemainderView: View {
                             }
                         }
                     }
-                    
-//                    Text(String(viewModel.notificationArray.count) + " all notifications")
-//                    Text("Number of all notification is \(viewModel.allNotification)")
                 }
             }
+            .navigationTitle("Reminders")
             .toolbar{
                 ToolbarItem(placement: .confirmationAction, content: {
                     NavigationLink{
@@ -67,16 +65,10 @@ struct ShowRemainderView: View {
                 })
             }
         }
-        .sheet(isPresented: $viewModel.showEditNotification, content: {
-//            EditRemainderView()
-        })
+
         .onAppear(perform: {
-            
             viewModel.chosenCar(car: car)
-            
             viewModel.getNotification()
-            
-//            viewModel.filterNotification(name: car.name)
         })
     }
 }

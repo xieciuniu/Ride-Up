@@ -28,8 +28,8 @@ struct EditRemainderView: View {
                     TextField("", text: $viewModel.titleToChange)
                 }
                 
-                Section("Additional description") {
-                    TextField("", text: $viewModel.descriptionToChange)
+                Section("Optional") {
+                    TextField("Additional description", text: $viewModel.descriptionToChange)
                 }
                 
                 Section("Date") {

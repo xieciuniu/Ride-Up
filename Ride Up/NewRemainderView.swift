@@ -23,26 +23,12 @@ struct NewRemainderView: View {
 //        NavigationView {
             Form {
                 Section("Reminder name") {
-                    TextField("Name", text: $viewModel.customRemainder)
+                    TextField("", text: $viewModel.customRemainder)
                 }
                 
                 Section("Optional") {
                     TextField("Additional describe", text: $viewModel.optionalDescribe)
                 }
-                
-                // section i think don't needed
-//                Section("Start day") {
-//                    Picker("when to start", selection: $viewModel.starting) {
-//                        ForEach(viewModel.startingOptions, id: \.self) {
-//                            Text($0)
-//                        }
-//                    }
-//                    .pickerStyle(.segmented)
-//                    
-//                    if viewModel.starting == "Chose the day" {
-//                        DatePicker("Start of counting", selection: $viewModel.selectedDate)
-//                    }
-//                }
                 
                 Section("When it has to remind") {
                     DatePicker("Remind occur ", selection: $viewModel.selectedDate)

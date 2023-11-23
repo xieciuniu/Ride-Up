@@ -31,9 +31,9 @@ struct RepairEditView: View {
                     .multilineTextAlignment(.trailing)
             }
             
-            HStack {
-                if (viewModel.dataPhoto != nil ) {
-                    if let uiImage = UIImage(data: viewModel.dataPhoto!) {
+            if (viewModel.dataPhoto != nil ) {
+                if let uiImage = UIImage(data: viewModel.dataPhoto!) {
+                    HStack {
                         Image(uiImage: uiImage)
                             .resizable()
                             .scaledToFit()
@@ -50,18 +50,11 @@ struct RepairEditView: View {
                                 }
                             }
                     }
-                    //                    Spacer()
                 }
             }
             HStack {
-                if (viewModel.dataPhoto != nil ) {
-                    PhotosPicker(selection: $viewModel.photo, matching: .images) {
-                        Text("Change photo")
-                    }
-                } else {
-                    PhotosPicker(selection: $viewModel.photo, matching: .images) {
-                        Text("Add photo")
-                    }
+                PhotosPicker(selection: $viewModel.photo, matching: .images) {
+                    Text(viewModel.dataPhoto != nil ? "Change photo" : "Add photo")
                 }
             }
             
