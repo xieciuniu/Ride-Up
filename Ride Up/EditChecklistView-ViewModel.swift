@@ -186,7 +186,7 @@ extension EditChecklistView {
             
             let trigger = UNCalendarNotificationTrigger(dateMatching:Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: dateOfReminder), repeats: false)
             
-            let request = UNNotificationRequest(identifier: UUID().uuidString + item.checkName + car.name, content: content, trigger: trigger)
+            let request = UNNotificationRequest(identifier: UUID().uuidString + item.checkName + car.id.uuidString, content: content, trigger: trigger)
             
             UNUserNotificationCenter.current().add(request)
             

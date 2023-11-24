@@ -59,7 +59,7 @@ extension MainView {
                     var fetchNotification: [UNNotificationRequest] = []
 //                    var notificationArray: [UNNotificationRequest] = []
                     for i in deliveredNotifications {
-                        if i.identifier.hasSuffix(self.car.name) {
+                        if i.identifier.hasSuffix(self.car.id.uuidString) {
                             //title.contains("| " + self.car.name) {
                             fetchNotification.append(i)
                         }

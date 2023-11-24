@@ -40,7 +40,7 @@ extension NewRemainderView {
             let trigger = UNCalendarNotificationTrigger(dateMatching:Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: selectedDate), repeats: false)
             
             // adding identifier
-            let request = UNNotificationRequest(identifier: UUID().uuidString + car.name, content: content, trigger: trigger)
+            let request = UNNotificationRequest(identifier: UUID().uuidString + car.id.uuidString, content: content, trigger: trigger)
             
             // add notification request
             UNUserNotificationCenter.current().add(request)

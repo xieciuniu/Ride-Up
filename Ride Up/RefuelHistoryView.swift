@@ -13,8 +13,8 @@ struct RefuelHistoryView: View {
     @EnvironmentObject var cars: Cars
     var body: some View {
         Form {
-            Section{
-                ForEach(viewModel.car.fuel, id: \.self) { fuel in
+            ForEach(viewModel.car.fuel, id: \.self) { fuel in
+                Section{
                     
                     NavigationLink {
                         RefuelEditView(id: fuel.id)

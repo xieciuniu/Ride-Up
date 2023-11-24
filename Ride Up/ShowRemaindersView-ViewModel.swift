@@ -27,7 +27,7 @@ extension ShowRemainderView {
                 DispatchQueue.main.async {
                     var fetchNotification: [UNNotificationRequest] = []
                     for i in deliveredNotifications {
-                        if i.identifier.hasSuffix(self.car.name) {
+                        if i.identifier.hasSuffix(self.car.id.uuidString) {
                             fetchNotification.append(i)
                         }
                     }

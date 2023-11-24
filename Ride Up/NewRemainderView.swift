@@ -20,78 +20,75 @@ struct NewRemainderView: View {
     }
     
     var body: some View {
-//        NavigationView {
-            Form {
-                Section("Reminder name") {
-                    TextField("", text: $viewModel.customRemainder)
+        //        NavigationView {
+        Form {
+            Section("Reminder name") {
+                TextField("", text: $viewModel.customRemainder)
+            }
+            
+            Section("Optional") {
+                TextField("Additional describe", text: $viewModel.optionalDescribe)
+            }
+            
+            Section("When it has to remind") {
+                DatePicker("Remind occur ", selection: $viewModel.selectedDate)
+                
+                HStack {
+                    Text("Year")
+                    Spacer()
+                    Button("+") { viewModel.year(1) }
+                        .buttonStyle(.borderedProminent)
+                    Button("-") { viewModel.year(-1) }
+                        .buttonStyle(.borderedProminent)
                 }
                 
-                Section("Optional") {
-                    TextField("Additional describe", text: $viewModel.optionalDescribe)
+                HStack {
+                    Text("Months")
+                    Spacer()
+                    Button("+") { viewModel.month(1) }
+                    //                            .frame(width: 60)
+                        .buttonStyle(.borderedProminent)
+                    Button("-") { viewModel.month(-1) }
+                        .buttonStyle(.borderedProminent)
                 }
                 
-                Section("When it has to remind") {
-                    DatePicker("Remind occur ", selection: $viewModel.selectedDate)
-                    
-                    HStack {
-                        Text("Year")
-                        Spacer()
-                        Button("+") { viewModel.year(1) }
-                            .buttonStyle(.borderedProminent)
-                        Button("-") { viewModel.year(-1) }
-                            .buttonStyle(.borderedProminent)
-                    }
-                    
-                    HStack {
-                        Text("Months")
-                        Spacer()
-                        Button("+") { viewModel.month(1) }
-//                            .frame(width: 60)
-                            .buttonStyle(.borderedProminent)
-                        Button("-") { viewModel.month(-1) }
-                            .buttonStyle(.borderedProminent)
-                    }
-                    
-                    HStack {
-                        Text("Day")
-                        Spacer()
-                        Button("+") { viewModel.day(1) }
-                            .buttonStyle(.borderedProminent)
-                        Button("-") { viewModel.day(-1) }
-                            .buttonStyle(.borderedProminent)
-                    }
-                    
-                    HStack {
-                        Text("Hour")
-                        Spacer()
-                        Button("+") { viewModel.hour(1) }
-                            .buttonStyle(.borderedProminent)
-                        Button("-") { viewModel.hour(-1) }
-                            .buttonStyle(.borderedProminent)
-                    }
-                    
-                    HStack {
-                        Text("Minutes")
-                        Spacer()
-                        Button("+") { viewModel.minute(1) }
-                            .buttonStyle(.borderedProminent)
-                        Button("-") { viewModel.minute(-1) }
-                            .buttonStyle(.borderedProminent)
-                    }
-                }   
+                HStack {
+                    Text("Day")
+                    Spacer()
+                    Button("+") { viewModel.day(1) }
+                        .buttonStyle(.borderedProminent)
+                    Button("-") { viewModel.day(-1) }
+                        .buttonStyle(.borderedProminent)
+                }
+                
+                HStack {
+                    Text("Hour")
+                    Spacer()
+                    Button("+") { viewModel.hour(1) }
+                        .buttonStyle(.borderedProminent)
+                    Button("-") { viewModel.hour(-1) }
+                        .buttonStyle(.borderedProminent)
+                }
+                
+                HStack {
+                    Text("Minutes")
+                    Spacer()
+                    Button("+") { viewModel.minute(1) }
+                        .buttonStyle(.borderedProminent)
+                    Button("-") { viewModel.minute(-1) }
+                        .buttonStyle(.borderedProminent)
+                }
             }
-            .toolbar {
-                ToolbarItem(placement: .confirmationAction, content: {
-                    Button("Add") {
-                        viewModel.addRemainder()
-                        dismiss()
-                    }
-                })
-//                ToolbarItem(placement: .cancellationAction) {
-//                    Button("Back", role: .destructive) { dismiss() }
-//                }
-            }
-//        }
+        }
+        .toolbar {
+            ToolbarItem(placement: .confirmationAction, content: {
+                Button("Add") {
+                    viewModel.addRemainder()
+                    dismiss()
+                }
+            })
+        }
+
         
         .onAppear{
             viewModel.chosenCar(chosen: car)

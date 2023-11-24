@@ -47,7 +47,7 @@ extension EditRemainderView {
             
             let trigger = UNCalendarNotificationTrigger(dateMatching:Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: dateToChange), repeats: false)
 
-            let request = UNNotificationRequest(identifier: UUID().uuidString + car.name, content: content, trigger: trigger)
+            let request = UNNotificationRequest(identifier: UUID().uuidString + car.id.uuidString, content: content, trigger: trigger)
             
             UNUserNotificationCenter.current().add(request)
         }
