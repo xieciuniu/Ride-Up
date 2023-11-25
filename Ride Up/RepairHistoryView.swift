@@ -20,11 +20,8 @@ struct RepairHistoryView: View {
         Form{
             ForEach(car.repairStruct) { repair in
                 ZStack{
-                    NavigationLink {
-                        RepairEditView(repairID: repair.id)
-                    } label: {
-//                        Rectangle()
-                    }
+                    NavigationLink("", destination: RepairEditView(repairID: repair.id))
+                        .opacity(0)
                     
                     HStack {
                         VStack{

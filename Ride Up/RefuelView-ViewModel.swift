@@ -35,29 +35,6 @@ extension RefuelView {
             }
         }
         
-//        func refilType() {
-//            switch self.refillType {
-//            case "Full":
-//                isFull = true
-//            case "Partly":
-//                isFull = false
-//            default:
-//                isFull = true
-//            }
-//        }
-        
-        
-        //tank status
-//        @Published var tankStatus: Double = 6
-//        @Published var tankStatusBefore: Double = 1
-//        let tankStatuses = ["0", "1/8", "2/8", "3/8", "4/8", "5/8", "6/8", "7/8", "1"]
-//        var tankAfter: Double {
-//            tankStatus / 8
-//        }
-//        var tankBefore: Double {
-//            tankStatusBefore / 8
-//        }
-        
         
         // fuel variables
         @Published var tankedFuel: Double? = nil

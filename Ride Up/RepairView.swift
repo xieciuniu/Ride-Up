@@ -31,8 +31,8 @@ struct RepairView: View {
                 Section("Part") {
                     if (viewModel.isCustom) {
                         HStack {
-                            Text("Custom:")
-                            TextField("", text: $viewModel.customPart)
+                            Text("Name:")
+                            TextField("", text: $viewModel.part)
                                 .multilineTextAlignment(.trailing)
                         }
                     } else {
@@ -57,7 +57,7 @@ struct RepairView: View {
                         }
                     }
                     PhotosPicker(selection: $viewModel.photo, matching: .images) {
-                        Text("Add photo")
+                        Text(viewModel.selectedPhoto != nil ? "Change photo": "Add photo")
                     }
                 }
                 

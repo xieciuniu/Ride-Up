@@ -87,18 +87,13 @@ struct RefuelView: View {
                     Section("Millage") {
                         
                         VStack {
-                            HStack{
-                                Spacer()
-                                Text("Mileage")
-                                Spacer()
-                            }
-                            
                             Picker("mileage", selection: $viewModel.mileageOption) {
                                 ForEach(viewModel.mileageOptions, id:\.self) { optionn in
                                     Text(optionn)
                                 }
                             }
                             .pickerStyle(.segmented)
+                            
                         }
                         
                         if (viewModel.isMileageOverall) {
@@ -128,7 +123,7 @@ struct RefuelView: View {
                     Section {
                         if (viewModel.isFull) {
                             HStack {
-                                Text("your fuel economy score:")
+                                Text("Fuel score:")
                                 Spacer()
                                 Text("\(viewModel.economyScore, specifier: "%.2f") l/100km")
                             }
@@ -181,20 +176,7 @@ struct RefuelView: View {
                 viewModel.extractCar(cars: cars)
             })
         }
-    }                   
-    
-//    func addRefile() {
-//        // add economy score
-////        car.fuel.fuelEconomy.append(economyScore)
-//        
-//        // change mileage of car
-//        if mileageOption == "Overall" {
-//            car.millage = mileageAll
-//        } else {
-//            let overall = millageSinceRefueling + (car.millage ?? 0)
-//            car.millage = overall
-//        }
-//    }
+    }
     
     init(car: Binding<Car>) {
         self._car = car
