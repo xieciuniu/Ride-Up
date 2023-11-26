@@ -101,7 +101,7 @@ class Car: Identifiable, Comparable, Codable {
     // fuel things
     var millage: Double? = nil
     var fuelUnit: String = ""
-    var tankCapacity: Int = 0
+    var tankCapacity: Int? = nil
     var fuelType: String = ""
     var tankLevel: Int = 0
     var fuelEconomy: Double = 0.0

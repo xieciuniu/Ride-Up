@@ -26,45 +26,88 @@ struct AddCarView: View {
         NavigationView {
             Form {
                 Section("Vehicle") {
-                    TextField("Name", text: $newCar.name)
-                    TextField("Make", text: $newCar.make)
-                    TextField("Model", text: $newCar.model)
+                    HStack {
+                        Text("Name: ")
+                        TextField("", text: $newCar.name)
+                            .multilineTextAlignment(.trailing)
+                    }
+                    HStack {
+                        Text("Make: ")
+                        TextField("", text: $newCar.make)
+                            .multilineTextAlignment(.trailing)
+                    }
+                    HStack {
+                        Text("Model: ")
+                        TextField("", text: $newCar.model)
+                            .multilineTextAlignment(.trailing)
+                    }
                     
                 }
                 
-                Section("fuel") {
-                    TextField("year", text: $newCar.year)
-                }
-                
-                Section("Photo") {
-                    HStack {
-                        //here chosen image
-                        if let selectedPhoto, let uiImage = UIImage(data: selectedPhoto) {
-                            Image(uiImage: uiImage)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 100, height: 100)
-                        }
-                        
-                        Spacer()
-                        
-                        PhotosPicker(selection: $photo, matching: .images) {
-                            Text("Add photo")
-                        }
+                Section() {
+                    HStack{
+                        Text("Millage: ")
+                        TextField("0", value: $newCar.millage, format: .number)
+                            .keyboardType(.numberPad)
+                            .multilineTextAlignment(.trailing)
                     }
-                }
-                
-                Section("Details") {
-                    TextField("Millage", value: $newCar.millage, format: .number)
-                        .keyboardType(.numberPad)
-                
                     HStack{
                         Text("Tank Capacity")
                         Spacer()
                         TextField("0", value: $newCar.tankCapacity, format: .number)
                             .keyboardType(.numberPad)
-                            .frame(width: 30)
+                            .multilineTextAlignment(.trailing)
                     }
+                }
+                
+                Section("Photo") {
+                    
+                        //here chosen image
+                        if let selectedPhoto, let uiImage = UIImage(data: selectedPhoto) {
+                            Image(uiImage: uiImage)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 200, height: 160)
+                                .padding([.leading, .trailing], 90)
+                                .padding([.top, .bottom], 15)
+                        }
+                        
+                        
+                        PhotosPicker(selection: $photo, matching: .images) {
+                            Text(selectedPhoto != nil ? "Change photo" : "Add photo")
+                        
+                    }
+                }
+                
+                Section("Details") {
+                    HStack {
+                        Text("Year: ")
+                        TextField("", text: $newCar.year)
+                            .multilineTextAlignment(.trailing)
+                    }
+                    HStack {
+                        Text("Fuel:")
+                        // TODO: picker of possible fuel what change engine size and transmision
+                    }
+                    HStack {
+                        Text("Engine size:")
+                    }
+                    HStack {
+                        Text("Engine power:")
+                    }
+                    HStack {
+                        Text("Transmision:")
+                        // TODO: picker of transmission type
+                    }
+                    
+                    // TODO: think about it is necessary
+                    HStack {
+                        Text("Doors:")
+                    }
+                    HStack {
+                        Text("Seats:")
+                    }
+                
                 }
                 
                 Button("Add Car") {

@@ -156,7 +156,7 @@ struct RefuelView: View {
                         cars.save()
                         dismiss()
                     }
-                    .disabled( (viewModel.tankedFuel ?? 0) > Double(car.tankCapacity))
+                    .disabled( (viewModel.tankedFuel ?? 0) > Double(car.tankCapacity ?? 999))
                 }
             }
             
@@ -170,7 +170,11 @@ struct RefuelView: View {
                 viewModel.tankedWasChanged()
             }
             .onChange(of: viewModel.tankedFuel) { fuel in
-                if (fuel ?? 1) > Double(car.tankCapacity) { viewModel.tankedFuelCheck = false }
+                if (fuel ?? 1) > Double(car.tankCapacity ?? 999) { viewModel.tankedFuelCheck = false
+                } else {
+                    viewModel.tankedFuelCheck = true
+                }
+                
             }
             .onAppear(perform: {
                 viewModel.extractCar(cars: cars)
