@@ -22,6 +22,8 @@ struct AddCarView: View {
     
     @Environment(\.dismiss) var dismiss
     
+    @State private var descriptionString = ""
+    
     var body: some View {
         NavigationView {
             Form {
@@ -44,9 +46,14 @@ struct AddCarView: View {
                     
                 }
                 
+                Section("Description") {
+                    TextEditor(text: $descriptionString)
+                    
+                }
+                
                 Section() {
                     HStack{
-                        Text("Millage: ")
+                        Text("Mileage: ")
                         TextField("0", value: $newCar.millage, format: .number)
                             .keyboardType(.numberPad)
                             .multilineTextAlignment(.trailing)
@@ -96,21 +103,25 @@ struct AddCarView: View {
                         Text("Engine power:")
                     }
                     HStack {
-                        Text("Transmision:")
+                        Text("Transmission:")
                         // TODO: picker of transmission type
                     }
                     
                     // TODO: think about it is necessary
                     HStack {
-                        Text("Doors:")
+                        Text("Vin:")
                     }
                     HStack {
-                        Text("Seats:")
+                        Text("License plate:")
+                    }
+                    HStack {
+                        Text("Insurance policy: ")
                     }
                 
                 }
                 
                 Button("Add Car") {
+                    newCar.description = descriptionString
                     cars.cars.append(newCar)
                     cars.save()
                     dismiss()
