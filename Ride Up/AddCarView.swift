@@ -24,6 +24,8 @@ struct AddCarView: View {
     
     @State private var descriptionString = ""
     
+    @StateObject var viewModel = ViewModel()
+    
     var body: some View {
         NavigationView {
             Form {
@@ -65,6 +67,26 @@ struct AddCarView: View {
                             .keyboardType(.numberPad)
                             .multilineTextAlignment(.trailing)
                     }
+                }
+                
+                Section("Chose your units"){
+                    HStack {
+                        Text("Fuel:")
+                        Picker("", selection: $viewModel.fuelUnit) {
+                            ForEach(viewModel.fuelUnits, id: \.self) {
+                                Text($0)
+                            }
+                        }
+                    }
+                    HStack {
+                        Text("Distance:")
+                        Picker("", selection: $viewModel.distanceUnit) {
+                            ForEach(viewModel.distanceUnits, id: \.self) {
+                                Text($0)
+                            }
+                        }
+                    }
+                    
                 }
                 
                 Section("Photo") {
