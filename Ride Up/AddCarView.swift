@@ -24,6 +24,8 @@ struct AddCarView: View {
     
     @State private var descriptionString = ""
     
+    @StateObject var viewModel = ViewModel()
+    
     var body: some View {
         NavigationView {
             Form {
@@ -67,6 +69,35 @@ struct AddCarView: View {
                     }
                 }
                 
+                Section("Chose your units"){
+                    HStack {
+                        Text("Fuel:")
+                        Picker("", selection: $viewModel.fuelUnit) {
+                            ForEach(viewModel.fuelUnits, id: \.self) {
+                                Text($0)
+                            }
+                        }
+                    }
+                    HStack {
+                        Text("Distance:")
+                        Picker("", selection: $viewModel.distanceUnit) {
+                            ForEach(viewModel.distanceUnits, id: \.self) {
+                                Text($0)
+                            }
+                        }
+                    }
+                    
+                    HStack {
+                        Text("Fuel economy:")
+                        Picker("", selection: $viewModel.fuelEconomyUnit) {
+                            ForEach(viewModel.fuelEconomyUnits, id: \.self) {
+                                Text($0)
+                            }
+                        }
+                    }
+                    
+                }
+                
                 Section("Photo") {
                     
                         //here chosen image
@@ -93,8 +124,12 @@ struct AddCarView: View {
                             .multilineTextAlignment(.trailing)
                     }
                     HStack {
-                        Text("Fuel:")
+                        Text("Fuel type:")
                         // TODO: picker of possible fuel what change engine size and transmision
+                    }
+                    HStack {
+                        Text("Second tank:")
+                        
                     }
                     HStack {
                         Text("Engine size:")
